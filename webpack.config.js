@@ -1,11 +1,11 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
-
+const path = require("path");
 module.exports = {
   entry: "./src/index.js",
   mode: "development",
   devServer: { port: 3000, historyApiFallback: true, hot: true },
-  output: { publicPath: "http://localhost:3000/", clean: true },
+  output: { publicPath: "http://localhost:3000/", path: path.resolve(__dirname, "build"), clean: true },
   module: {
     rules: [{ test: /\.jsx?$/, exclude: /node_modules/, use: "babel-loader" }]
   },
