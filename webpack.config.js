@@ -2,20 +2,20 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 const path = require("path");
-
+ 
 module.exports = (_, argv) => {
   const isProd = argv.mode === "production";
-
+ 
   // In Netlify, you’ll set CART_URL and WISHLIST_URL env vars on the HOST only.
-  const CART_URL = process.env.CART_URL || (isProd ? "https://lemon-flower-07e74da00.2.azurestaticapps.net" : "http://localhost:3001");
-  const WISHLIST_URL = process.env.WISHLIST_URL || (isProd ? "https://gentle-ground-01e5d4700.2.azurestaticapps.net" : "http://localhost:3002");
-
+  const CART_URL = process.env.CART_URL || (isProd ?  process.env.REACT_APP_PRODUCTION_URL_MICROU1 : process.env.REACT_APP_DEVELOPMENT_URL_MICROU1);
+  const WISHLIST_URL = process.env.WISHLIST_URL || (isProd ? process.env.REACT_APP_DEVELOPMENT_URL_MICROU2 : process.env.REACT_APP_PRODUCTION_URL_MICROU2);
+ 
   return {
     entry: "./src/index.js",
     mode: isProd ? "production" : "development",
-    devServer: { port: 3000, historyApiFallback: true, hot: true },
+    devServer: { port: 3000, historyApiFallback: true, hot: true},
     output: {
-      publicPath: "auto",                 // ✅ key change
+      publicPath: "auto",                
       path: path.resolve(__dirname, "build"),
       clean: true
     },
@@ -40,3 +40,5 @@ module.exports = (_, argv) => {
     ]
   };
 };
+ 
+ 
