@@ -1,0 +1,11 @@
+{
+  "routes": [{ "route": "/*", "allowedRoles": ["anonymous"] }],
+  "cors": {
+   "allowedOrigins": [
+     "https://wissda.cloud",
+     "https://www.wissda.cloud",
+     "https://zeero.us",
+     "https://www.zeero.us"
+   ]
+  }
+}
