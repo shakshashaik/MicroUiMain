@@ -7,8 +7,8 @@ module.exports = (_, argv) => {
   const isProd = argv.mode === "production";
 
   // In Netlify, you’ll set CART_URL and WISHLIST_URL env vars on the HOST only.
-  const CART_URL = process.env.CART_URL || (isProd ? "https://component111.netlify.app" : "http://localhost:3001");
-  const WISHLIST_URL = process.env.WISHLIST_URL || (isProd ? "https://component22.netlify.app" : "http://localhost:3002");
+  const CART_URL = process.env.CART_URL || (isProd ? "https://lemon-flower-07e74da00.2.azurestaticapps.net" : "http://localhost:3001");
+  const WISHLIST_URL = process.env.WISHLIST_URL || (isProd ? "https://gentle-ground-01e5d4700.2.azurestaticapps.net" : "http://localhost:3002");
 
   return {
     entry: "./src/index.js",
